@@ -1,7 +1,5 @@
 __author__ = 'dgarrido'
 
-DEVICE_ID='mi-dispositivo'
-REGISTRY_ID='mi-registro'
 IOTHUB_DEVICE_CONNECTION_STRING='[PUT YOUR CREDENTIALS HERE]'
 
 import datetime

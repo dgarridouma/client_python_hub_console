@@ -2,7 +2,7 @@ __author__ = 'dgarrido'
 
 DEVICE_ID='mi-dispositivo'
 REGISTRY_ID='mi-registro'
-IOTHUB_DEVICE_CONNECTION_STRING='[PUT YOUR DEVICE CONNECTION STRING HERE]'
+IOTHUB_DEVICE_CONNECTION_STRING='HostName=miregistro.azure-devices.net;DeviceId=midispositivo;SharedAccessKey=jtFngbSC0BMCsc2H44e4Jwsyxy8j9GleifvQuxqDYZw='
 
 import datetime
 import random
@@ -12,6 +12,18 @@ from azure.iot.device import IoTHubDeviceClient, Message
 
 period = 10
 
+# define behavior for receiving a message
+#{
+#  "period": 1,
+#  "message": "period changed"
+#}
+def message_handler(message):
+    global period
+    dict_command=json.loads(message.data)
+    period = int(dict_command['period'])
+    print(dict_command['message'])
+
+
 def main():
     # The connection string for a device should never be stored in code. For the sake of simplicity we're using an environment variable here.
     # The client object is used to interact with your Azure IoT hub.
@@ -19,6 +31,9 @@ def main():
 
     # Connect the client.
     device_client.connect()
+
+    # set the message handler on the client
+    device_client.on_message_received = message_handler
 
     i=0
     while True:

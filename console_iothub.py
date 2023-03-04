@@ -2,7 +2,7 @@ __author__ = 'dgarrido'
 
 DEVICE_ID='mi-dispositivo'
 REGISTRY_ID='mi-registro'
-IOTHUB_DEVICE_CONNECTION_STRING='HostName=miregistro.azure-devices.net;DeviceId=midispositivo;SharedAccessKey=jtFngbSC0BMCsc2H44e4Jwsyxy8j9GleifvQuxqDYZw='
+IOTHUB_DEVICE_CONNECTION_STRING='[PUT YOUR CREDENTIALS HERE]'
 
 import datetime
 import random
